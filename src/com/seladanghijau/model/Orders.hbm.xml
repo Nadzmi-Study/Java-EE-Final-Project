@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping
+        PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.seladanghijau.model.Orders" table="orders">
+        <id name="id" column="id" type="java.lang.Long">
+            <generator class="native" />
+        </id>
+        <property name="foodId" column="food_id" type="java.lang.Long" />
+        <property name="userId" column="user_id" type="java.lang.Long" />
+        <property name="orderTime" column="order_time" type="java.util.Date" />
+    </class>
+</hibernate-mapping>
