@@ -16,5 +16,5 @@ public class FoodsController {
     // TODO: 5/20/2017 - listOfFoodTypes(): List @ModelAttribute("foodTypeList") [list all food types in dropdown box]
     // TODO: 5/20/2017 - registerNewFoodTypes(newFoodTypes: FoodTypes @ModelAttribute("foodTypes"), result: BindingResult): ModelAndView
     // TODO: 5/20/2017 - updateFoodTypes(updatedFoodTypes: FoodTypes @ModelAttribute("updatedFoodTypes"), result: Bindingresult): ModelAndView
-    // TODO: 5/20/2017 - removeFoodtypes(id: String @RequestParam): ModelAndView
+    // TODO: 5/20/2017 - removeFoodTypes(id: String @RequestParam): ModelAndView
 }
