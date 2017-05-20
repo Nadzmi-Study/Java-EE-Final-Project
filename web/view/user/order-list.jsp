@@ -16,7 +16,7 @@
                 <th>Price (RM)</th>
             </tr>
 
-            ${foodList}
+            ${orderListByUserId}
             <!-- output a list of this <tr> from the controller
             <tr>
                 <td><< no: 1 >></td>
