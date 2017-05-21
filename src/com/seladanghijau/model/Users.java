@@ -12,6 +12,9 @@ public class Users {
         login = null;
         active = false;
     }
+    public Users(Long id) {
+        this.id = id;
+    }
     public Users(Long id, String login, String password, boolean active) {
         this.id = id;
         this.login = login;

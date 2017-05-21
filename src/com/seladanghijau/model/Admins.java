@@ -11,6 +11,9 @@ public class Admins {
         login = null;
         password = null;
     }
+    public Admins(Long id) {
+        this.id = id;
+    }
     public Admins(Long id, String login, String password) {
         this.id = id;
         this.login = login;

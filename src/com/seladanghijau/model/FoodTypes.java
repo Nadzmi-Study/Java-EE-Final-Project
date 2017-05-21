@@ -10,6 +10,9 @@ public class FoodTypes {
         id = null;
         name = null;
     }
+    public FoodTypes(Long id) {
+        this.id = id;
+    }
     public FoodTypes(Long id, String name) {
         this.id = id;
         this.name = name;

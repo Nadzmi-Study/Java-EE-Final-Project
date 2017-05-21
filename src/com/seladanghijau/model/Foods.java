@@ -13,6 +13,9 @@ public class Foods {
         name = null;
         price = 0;
     }
+    public Foods(Long id) {
+        this.id = id;
+    }
     public Foods(Long id, Long typeId, String name, int price) {
         this.id = null;
         this.typeId = null;

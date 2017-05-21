@@ -14,6 +14,9 @@ public class Orders {
         userId = null;
         orderTime = null;
     }
+    public Orders(Long id) {
+        this.id = id;
+    }
     public Orders(Long id, Long foodId, Long userId, Date orderTime) {
         this.id = id;
         this.foodId = foodId;
