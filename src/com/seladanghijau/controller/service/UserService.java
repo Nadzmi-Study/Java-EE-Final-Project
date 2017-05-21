@@ -13,6 +13,7 @@ public class UserService {
      * Methods:
      *  -   getAdminsById(id: Long): Admins
      *  -   getAdminsByLoginAndPassword(login: String, password: String): Admins
+     *
      *  -   getUsersById(id: Long): Users
      *  -   getUsersByLoginAndPassword(login: String, passsword: String): Users
      *  -   addNewUsers(newUser: Users): Long

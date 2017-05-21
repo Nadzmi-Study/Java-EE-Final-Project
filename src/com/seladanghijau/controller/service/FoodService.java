@@ -18,6 +18,7 @@ public class FoodService {
      *  -   addNewFoods(newFood: Foods): Long
      *  -   removeFoodsById(id: Long): void
      *  -   editFoods(editedFood: Foods): void
+     *
      *  -   getAllFoodTypes(): List
      *  -   getFoodTypesById(id: Long): FoodTypes
      *  -   addNewFoodTypes(newFoodType: FoodTypes): Long
