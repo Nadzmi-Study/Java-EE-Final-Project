@@ -38,7 +38,6 @@ public class OrderService {
             transaction.commit();
         } catch (Exception e) { e.printStackTrace(); }
         finally {
-            session.flush();
             session.close();
         }
 
@@ -66,7 +65,6 @@ public class OrderService {
             transaction.commit();
         } catch (Exception e) { e.printStackTrace(); }
         finally {
-            session.flush();
             session.close();
         }
 
@@ -94,7 +92,6 @@ public class OrderService {
             transaction.commit();
         } catch (Exception e) { e.printStackTrace(); }
         finally {
-            session.flush();
             session.close();
         }
 
@@ -117,7 +114,6 @@ public class OrderService {
             transaction.commit();
         } catch (Exception e) { e.printStackTrace(); }
         finally {
-            session.flush();
             session.close();
         }
 

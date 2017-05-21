@@ -4,7 +4,7 @@
         <title>Mini Restaurant System</title>
     </head>
     <body>
-        <form action="" method="post">
+        <form action="/users/login" method="post">
             <input type="text" name="login" placeholder="Login" />
             <input type="password" name="password" placeholder="Password" />
 

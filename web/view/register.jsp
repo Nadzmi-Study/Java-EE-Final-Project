@@ -4,7 +4,7 @@
         <title>Mini Restaurant System | Register</title>
     </head>
     <body>
-        <form action="" method="post">
+        <form action="/users/register" method="post">
             <input type="text" name="login" placeholder="Insert Login" />
             <input type="password" name="password" placeholder="Insert Password" />
 

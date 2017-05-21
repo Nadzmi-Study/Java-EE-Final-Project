@@ -40,7 +40,6 @@ public class UserService {
             transaction.commit();
         } catch (Exception e) { e.printStackTrace(); }
         finally {
-            session.flush();
             session.close();
         }
 
@@ -69,7 +68,6 @@ public class UserService {
             transaction.commit();
         } catch (Exception e) { e.printStackTrace(); }
         finally {
-            session.flush();
             session.close();
         }
 
@@ -97,7 +95,6 @@ public class UserService {
             transaction.commit();
         } catch (Exception e) { e.printStackTrace(); }
         finally {
-            session.flush();
             session.close();
         }
 
@@ -126,7 +123,6 @@ public class UserService {
             transaction.commit();
         } catch (Exception e) { e.printStackTrace(); }
         finally {
-            session.flush();
             session.close();
         }
 
@@ -149,7 +145,6 @@ public class UserService {
             transaction.commit();
         } catch (Exception e) { e.printStackTrace(); }
         finally {
-            session.flush();
             session.close();
         }
 

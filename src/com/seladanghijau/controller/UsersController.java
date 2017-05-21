@@ -17,6 +17,7 @@ public class UsersController {
      * Methods
      *  -   registerNewUser(newUser: Users @ModelAttribute("users"), result: BindingResult): ModelAndView
      *  -   login(params: String @RequestParam): ModelAndView
+     *  -   logout(): ModelAndView
      */
 
     // TODO: 5/20/2017 - iniBinder: void
@@ -38,6 +39,7 @@ public class UsersController {
         return modelAndView;
     }
 
+    @RequestMapping(value = "/login", method = RequestMethod.POST)
     public ModelAndView login(@RequestParam Map<String, String> params) {
         ModelAndView mavFailed;
 
@@ -76,5 +78,8 @@ public class UsersController {
         return mavFailed; // go back to index
     }
 
-    // TODO: 5/20/2017 - logout(): ModelAndView
+    @RequestMapping(value = "/logout", method = RequestMethod.POST)
+    public ModelAndView logout() {
+        return new ModelAndView("index");
+    }
 }

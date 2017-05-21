@@ -32,7 +32,7 @@
             </tr>
         </table>
 
-        <form action="" method="post">
+        <form action="/users/logout" method="post">
             <input type="submit" value="Logout" />
         </form>
     </body>
