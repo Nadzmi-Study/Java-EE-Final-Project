@@ -4,6 +4,8 @@
         <title>Admin | Delete Existing Food Type</title>
     </head>
     <body>
+        <a href="/link/admin">Home</a>
+
         <table>
             <tr>
                 <th>No.</th>

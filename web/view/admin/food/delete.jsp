@@ -4,7 +4,7 @@
         <title>Admin | Delete Existing Food</title>
     </head>
     <body>
-        <a href="../admin-profile.jsp">Home</a>
+        <a href="/link/admin">Home</a>
 
         <table>
             <tr>

@@ -4,7 +4,7 @@
         <title>${user.login} | Order Food</title>
     </head>
     <body>
-        <a href="user-profile.jsp">Home</a>
+        <a href="/link/user">Home</a>
 
         <h3>Order food here</h3>
         <table>

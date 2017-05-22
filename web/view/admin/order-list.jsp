@@ -4,7 +4,7 @@
         <title>Admin | Order List</title>
     </head>
     <body>
-        <a href="admin-profile.jsp">Home</a>
+        <a href="/link/admin">Home</a>
 
         <h3>All ordered food list</h3>
         <table>

@@ -4,7 +4,7 @@
         <title>Admin | Add New Food</title>
     </head>
     <body>
-        <a href="../admin-profile.jsp">Home</a>
+        <a href="/link/admin">Home</a>
 
         <form action="" method="post">
             <input type="text" name="name" placeholder="Food Name" />

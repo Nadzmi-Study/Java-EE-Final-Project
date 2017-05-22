@@ -4,16 +4,16 @@
         <title>Admin | Profile</title>
     </head>
     <body>
-        <a href="order-list.jsp">List of orders</a>
+        <a href="/link/admin/order-list">List of orders</a>
         <ol>Food
-            <li><a href="food/add.jsp">Add new food</a></li>
-            <li><a href="food/delete.jsp">Delete existing food</a></li>
-            <li><a href="food/edit.jsp">Edit existing food</a></li>
+            <li><a href="/link/food/add">Add new food</a></li>
+            <li><a href="/link/food/delete">Delete existing food</a></li>
+            <li><a href="/link/food/edit">Edit existing food</a></li>
         </ol>
         <ol>Food Type
-            <li><a href="food-type/add.jsp">Add new food type</a></li>
-            <li><a href="food-type/delete.jsp">Delete existing food type</a></li>
-            <li><a href="food-type/edit.jsp">Edit existing food type</a></li>
+            <li><a href="/link/food-type/add">Add new food type</a></li>
+            <li><a href="/link/food-type/delete">Delete existing food type</a></li>
+            <li><a href="/link/food-type/edit">Edit existing food type</a></li>
         </ol>
 
         <h3>Admin Profile</h3>
