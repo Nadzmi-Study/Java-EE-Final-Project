@@ -1,3 +1,8 @@
+<%@ page import="com.seladanghijau.model.Foods" %>
+<%@ page import="java.util.List" %>
+<%@ page import="java.io.PrintWriter" %>
+<%@ page import="org.springframework.mock.web.MockHttpServletRequest" %>
+<%@ page import="org.springframework.mock.web.MockHttpServletResponse" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
     <head>

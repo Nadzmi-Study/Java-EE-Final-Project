@@ -1,3 +1,4 @@
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
     <head>
@@ -9,11 +10,17 @@
         <form action="" method="post">
             <input type="text" name="name" placeholder="Food Name" />
             <input type="number" name="price" placeholder="Food Price" />
+            <form:select path="foodType">
+                <form:option value="NONE" label="Select" />
+                <form:options items="${}" />
+            </form:select>
+
+            <!--
             <select name="typeId">
-                ${foodTypeList}
-                <!-- output a list of food types
-                <option value="<< foodTyped.id >>"><< foodType.name >></option> -->
+                output a list of food types
+                <option value="<< foodTyped.id >>"><< foodType.name >></option>
             </select>
+            -->
 
             <input type="submit" value="Submit" />
         </form>

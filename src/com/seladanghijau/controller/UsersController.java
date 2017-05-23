@@ -11,16 +11,21 @@ import org.springframework.web.servlet.ModelAndView;
 import java.util.Map;
 
 @Controller
+@SessionAttributes("user")
 @RequestMapping("users")
 public class UsersController {
     /*
      * Methods
+     *  -   getUser(): Users
      *  -   registerNewUser(newUser: Users @ModelAttribute("users"), result: BindingResult): ModelAndView
      *  -   login(params: String @RequestParam): ModelAndView
      *  -   logout(): ModelAndView
      */
 
     // TODO: 5/20/2017 - iniBinder: void
+
+    @ModelAttribute("user")
+    public Users initUser() { return new Users(); }
 
     @RequestMapping(value = "/register", method = RequestMethod.POST)
     public ModelAndView registerNewUser(@ModelAttribute("user") Users newUser, BindingResult result) {
@@ -41,8 +46,6 @@ public class UsersController {
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public ModelAndView login(@RequestParam Map<String, String> params) {
-        ModelAndView mavFailed;
-
         String login, password;
         Admins tempAdmin;
 
@@ -54,7 +57,7 @@ public class UsersController {
             ModelAndView mavAdmin;
 
             mavAdmin = new ModelAndView("admin/admin-profile");
-            mavAdmin.addObject("admin", tempAdmin);
+            mavAdmin.addObject("admin", tempAdmin); // setup admin session
 
             return mavAdmin; // goto admin page
         } else { // if user is not admin
@@ -65,13 +68,15 @@ public class UsersController {
                 ModelAndView mavUser;
 
                 mavUser = new ModelAndView("user/user-profile");
-                mavUser.addObject("user", tempUser);
+                mavUser.addObject("user", tempUser); // setup user session
 
                 return mavUser; // goto user page
             }
         }
 
-        // is user not found, return error
+        // if user not found, return error
+        ModelAndView mavFailed;
+
         mavFailed = new ModelAndView("index");
         mavFailed.addObject("error", "Wrong login or password.");
 
