@@ -17,9 +17,6 @@ import java.util.Map;
 public class FoodsController {
     /*
      * Method
-     *  -   listOfFoods(): List @ModelAttribute("foodList") [list all foods in dropdown box]
-     *  -   listOfFoodTypes(): List @ModelAttribute("foodTypeList") [list all food types in dropdown box]
-     *
      *  -   registerNewFoods(newFoods: Foods @ModelAttribute("foods"), result: BindingResult): ModelAndView
      *  -   updateFoods(updatedFoods: Foods @ModelAttribute("updatedFoods"), result: BindingResult): ModelAndView
      *  -   removeFoods(id: Long @RequestParam): ModelAndView
@@ -29,23 +26,6 @@ public class FoodsController {
      */
 
     // TODO: 5/20/2017 - init binder
-
-    @ModelAttribute("foodList")
-    public Map<String, String> listOfFoods() {
-        Map<String, String> foodMap;
-        List foodList;
-
-        foodMap = new HashMap<>();
-
-        foodList = FoodService.getAllFoods();
-        for(Object food : foodList)
-            foodMap.put(((Foods) food).getId().toString(), ((Foods) food).getName());
-
-        return foodMap;
-    }
-
-    @ModelAttribute("foodTypeList")
-    public List listOfFoodTypes() { return FoodService.getAllFoodTypes(); }
 
     @RequestMapping(value = "/register", method = RequestMethod.POST)
     public ModelAndView registerNewFoods(@ModelAttribute("foods") Foods newFood, BindingResult result) {

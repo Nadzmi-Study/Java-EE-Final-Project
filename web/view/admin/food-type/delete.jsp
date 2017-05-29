@@ -21,8 +21,8 @@
                     <td><c:out value="${foodType.id}" /></td>
                     <td><c:out value="${foodType.name}" /></td>
                     <td>
-                        <form action="" method="post">
-                            <button type="submit" value="${foodType.id}">Delete</button>
+                        <form action="/foods/food-type/delete" method="post">
+                            <button type="submit" name="foodTypeId" value="${foodType.id}">Delete</button>
                         </form>
                     </td>
                 </tr>

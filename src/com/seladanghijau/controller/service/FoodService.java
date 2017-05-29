@@ -136,7 +136,7 @@ public class FoodService {
         }
     }
 
-    public static List getAllFoodTypes() {
+    public static List<FoodTypes> getAllFoodTypes() {
         Session session;
         Transaction transaction;
         List foodTypeList;
