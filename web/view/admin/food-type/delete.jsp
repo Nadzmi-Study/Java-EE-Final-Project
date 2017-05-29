@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
     <head>
@@ -14,19 +15,18 @@
                 <th></th>
             </tr>
 
-            ${foodTypeList}
-            <!-- output this for each row
-            <tr>
-                <td><< no: 1 >></td>
-                <td><< foodType.id: 1 >></td>
-                <td><< foodType.name: Vegetables >></td>
-                <td>
-                    <form action="" method="post">
-                        <button type="submit" value="<< foodType.id: 1 >>">Delete</button>
-                    </form>
-                </td>
-            </tr>
-            -->
+            <c:forEach var="foodType" items="${foodTypeList}">
+                <tr>
+                    <td><< no: 1 >></td>
+                    <td><c:out value="${foodType.id}" /></td>
+                    <td><c:out value="${foodType.name}" /></td>
+                    <td>
+                        <form action="" method="post">
+                            <button type="submit" value="${foodType.id}">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+            </c:forEach>
         </table>
     </body>
 </html>

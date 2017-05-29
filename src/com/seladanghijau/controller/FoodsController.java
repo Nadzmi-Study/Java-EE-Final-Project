@@ -45,18 +45,7 @@ public class FoodsController {
     }
 
     @ModelAttribute("foodTypeList")
-    public Map<String, String> listOfFoodTypes() {
-        Map<String, String> foodTypeMap;
-        List foodTypeList;
-
-        foodTypeMap = new HashMap<>();
-
-        foodTypeList = FoodService.getAllFoodTypes();
-        for(Object foodType : foodTypeList)
-            foodTypeMap.put(((FoodTypes) foodType).getId().toString(), ((FoodTypes) foodType).getName());
-
-        return foodTypeMap;
-    }
+    public List listOfFoodTypes() { return FoodService.getAllFoodTypes(); }
 
     @RequestMapping(value = "/register", method = RequestMethod.POST)
     public ModelAndView registerNewFoods(@ModelAttribute("foods") Foods newFood, BindingResult result) {
