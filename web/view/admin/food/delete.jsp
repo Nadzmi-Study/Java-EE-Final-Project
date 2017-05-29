@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page import="com.seladanghijau.model.Foods" %>
 <%@ page import="java.util.List" %>
 <%@ page import="java.io.PrintWriter" %>
@@ -21,7 +22,20 @@
                 <th></th>
             </tr>
 
-            ${foodList}
+            <c:forEach var="food" items="${foodList}">
+                <tr>
+                    <td><< no: 1 >></td>
+                    <td>${food.id}</td>
+                    <td>${food.name}</td>
+                    <td>${food.typeId}</td>
+                    <td>${food.price}</td>
+                    <td>
+                        <form action="/foods/delete" method="post">
+                            <button type="submit" name="id" value="${food.id}">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+            </c:forEach>
             <!-- output this for each row
             <tr>
                 <td><< no: 1 >></td>

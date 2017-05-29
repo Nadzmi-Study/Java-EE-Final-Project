@@ -26,10 +26,10 @@ public class FoodService {
      *  -   editFoodTypes(editedFoodType: FoodTypes): void
      */
 
-    public static List getAllFoods() {
+    public static List<Foods> getAllFoods() {
         Session session;
         Transaction transaction;
-        List foodList;
+        List<Foods> foodList;
 
         foodList = null;
         session = HibernateUtil.getSessionFactory().openSession();

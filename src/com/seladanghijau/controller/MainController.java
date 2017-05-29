@@ -3,6 +3,7 @@ package com.seladanghijau.controller;
 
 import com.seladanghijau.controller.service.FoodService;
 import com.seladanghijau.model.FoodTypes;
+import com.seladanghijau.model.Foods;
 import com.seladanghijau.model.Users;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -44,7 +45,17 @@ public class MainController {
         return modelAndView;
     }
     @RequestMapping(value = "/link/food/delete", method = RequestMethod.GET)
-    public ModelAndView adminDeleteFoodPage() { return new ModelAndView("admin/food/delete"); }
+    public ModelAndView adminDeleteFoodPage() {
+        ModelAndView modelAndView;
+        List<Foods> foodsList;
+
+        modelAndView = new ModelAndView("admin/food/delete");
+
+        foodsList = FoodService.getAllFoods();
+        modelAndView.addObject("foodList", foodsList);
+
+        return modelAndView;
+    }
     @RequestMapping(value = "/link/food/edit", method = RequestMethod.GET)
     public ModelAndView adminEditFoodPage() { return new ModelAndView("admin/food/edit"); }
     @RequestMapping(value = "/link/food-type/add", method = RequestMethod.GET)
