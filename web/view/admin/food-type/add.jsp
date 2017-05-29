@@ -6,7 +6,7 @@
     <body>
         <a href="/link/admin">Home</a>
 
-        <form action="" method="post">
+        <form action="/foods/food-type/register" method="post">
             <input type="text" name="name" placeholder="Food type name" />
 
             <input type="submit" value="Submit" />

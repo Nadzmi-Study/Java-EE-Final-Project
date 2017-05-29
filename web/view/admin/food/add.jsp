@@ -1,3 +1,4 @@
+<%@ page import="java.util.List" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
@@ -7,12 +8,14 @@
     <body>
         <a href="/link/admin">Home</a>
 
-        <form action="" method="post">
+        <form:errors path="foodTypes.*" />
+
+        <form:form action="" method="post">
             <input type="text" name="name" placeholder="Food Name" />
             <input type="number" name="price" placeholder="Food Price" />
-            <form:select path="foodType">
-                <form:option value="NONE" label="Select" />
-                <form:options items="${}" />
+            <form:select path="foodTypeList">
+                <form:option value="0" label="Select" />
+                <form:options items="${foodTypeList}" />
             </form:select>
 
             <!--
@@ -23,6 +26,6 @@
             -->
 
             <input type="submit" value="Submit" />
-        </form>
+        </form:form>
     </body>
 </html>

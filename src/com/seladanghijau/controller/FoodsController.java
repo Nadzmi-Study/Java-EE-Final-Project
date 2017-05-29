@@ -5,10 +5,7 @@ import com.seladanghijau.model.FoodTypes;
 import com.seladanghijau.model.Foods;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.HashMap;
@@ -21,10 +18,11 @@ public class FoodsController {
     /*
      * Method
      *  -   listOfFoods(): List @ModelAttribute("foodList") [list all foods in dropdown box]
+     *  -   listOfFoodTypes(): List @ModelAttribute("foodTypeList") [list all food types in dropdown box]
+     *
      *  -   registerNewFoods(newFoods: Foods @ModelAttribute("foods"), result: BindingResult): ModelAndView
      *  -   updateFoods(updatedFoods: Foods @ModelAttribute("updatedFoods"), result: BindingResult): ModelAndView
      *  -   removeFoods(id: Long @RequestParam): ModelAndView
-     *  -   listOfFoodTypes(): List @ModelAttribute("foodTypeList") [list all food types in dropdown box]
      *  -   registerNewFoodTypes(newFoodTypes: FoodTypes @ModelAttribute("foodTypes"), result: BindingResult): ModelAndView
      *  -   updateFoodTypes(updatedFoodTypes: FoodTypes @ModelAttribute("updatedFoodTypes"), result: Bindingresult): ModelAndView
      *  -   removeFoodTypes(id: Long @RequestParam): ModelAndView
@@ -44,6 +42,20 @@ public class FoodsController {
             foodMap.put(((Foods) food).getId().toString(), ((Foods) food).getName());
 
         return foodMap;
+    }
+
+    @ModelAttribute("foodTypeList")
+    public Map<String, String> listOfFoodTypes() {
+        Map<String, String> foodTypeMap;
+        List foodTypeList;
+
+        foodTypeMap = new HashMap<>();
+
+        foodTypeList = FoodService.getAllFoodTypes();
+        for(Object foodType : foodTypeList)
+            foodTypeMap.put(((FoodTypes) foodType).getId().toString(), ((FoodTypes) foodType).getName());
+
+        return foodTypeMap;
     }
 
     @RequestMapping(value = "/register", method = RequestMethod.POST)
@@ -87,20 +99,6 @@ public class FoodsController {
         mavAdmin.addObject("message", "Food has been deleted.");
 
         return mavAdmin;
-    }
-
-    @ModelAttribute("foodTypeList")
-    public Map<String, String> listOfFoodTypes() {
-        Map<String, String> foodTypeMap;
-        List foodTypeList;
-
-        foodTypeMap = new HashMap<>();
-
-        foodTypeList = FoodService.getAllFoodTypes();
-        for(Object foodType : foodTypeList)
-            foodTypeMap.put(((FoodTypes) foodType).getId().toString(), ((FoodTypes) foodType).getName());
-
-        return foodTypeMap;
     }
 
     @RequestMapping(value = "/food-type/register", method = RequestMethod.POST)

@@ -1,16 +1,19 @@
 package com.seladanghijau.controller;
 
 
+import com.seladanghijau.model.Users;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.SessionAttribute;
+import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
 
 @Controller
 public class MainController {
     @RequestMapping(value = "/", method = RequestMethod.GET)
-    public ModelAndView mainPage() { return new ModelAndView("index"); }
+    public ModelAndView mainPage(@SessionAttribute("user") Users users) { return new ModelAndView("index"); }
 
     // LINKS
     // main
