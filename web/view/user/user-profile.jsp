@@ -3,6 +3,11 @@
 <html>
     <head>
         <title>${user.login} | Profile</title>
+
+        <!-- bootstrap -->
+        <link rel="stylesheet" href="../src/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="../src/css/bootstrap-theme.min.css" />
+        <!-- custom -->
     </head>
     <body>
         <a href="/link/user/order-list">Order List</a>
@@ -27,5 +32,11 @@
         <form action="/users/logout" method="post">
             <input type="submit" value="Logout" />
         </form>
+
+        <!-- bootstrap -->
+        <script src="src/js/jquery-3.2.1.min.js"></script>
+        <script src="src/js/bootstrap.min.js"></script>
+        <script src="src/js/npm.js"></script>
+        <!-- custom -->
     </body>
 </html>

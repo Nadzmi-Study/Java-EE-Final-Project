@@ -8,6 +8,13 @@
 <html>
     <head>
         <title>Admin | Delete Existing Food</title>
+
+        <!-- bootstrap -->
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+        <!-- custom -->
     </head>
     <body>
         <a href="/link/admin">Home</a>
@@ -22,9 +29,9 @@
                 <th></th>
             </tr>
 
-            <c:forEach var="food" items="${foodList}">
+            <c:forEach varStatus="loop" var="food" items="${foodList}">
                 <tr>
-                    <td><< no: 1 >></td>
+                    <td>${loop.index + 1}</td>
                     <td>${food.id}</td>
                     <td>${food.name}</td>
                     <td>${food.typeId}</td>
@@ -36,20 +43,12 @@
                     </td>
                 </tr>
             </c:forEach>
-            <!-- output this for each row
-            <tr>
-                <td><< no: 1 >></td>
-                <td><< food.id: 1 >></td>
-                <td><< food.name: tomatoes >></td>
-                <td><< foodType.name: vegetables >></td>
-                <td><< food.price: 10.00 >></td>
-                <td>
-                    <form action="" method="post">
-                        <button type="submit" value="<< food.id: 1 >>">Delete</button>
-                    </form>
-                </td>
-            </tr>
-            -->
         </table>
+
+        <!-- bootstrap -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <!-- custom -->
     </body>
 </html>

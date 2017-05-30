@@ -6,10 +6,7 @@ import com.seladanghijau.model.FoodTypes;
 import com.seladanghijau.model.Foods;
 import com.seladanghijau.model.Users;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.SessionAttribute;
-import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
@@ -19,6 +16,12 @@ import java.util.List;
 public class MainController {
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public ModelAndView mainPage(@SessionAttribute("user") Users users) { return new ModelAndView("index"); }
+
+    // MODEL
+    @ModelAttribute("foodList")
+    public List<Foods> getFoodList() { return FoodService.getAllFoods(); }
+    @ModelAttribute("foodTypeList")
+    public List<FoodTypes> getFoodTypeList() { return FoodService.getAllFoodTypes(); }
 
     // LINKS
     // main
@@ -33,45 +36,15 @@ public class MainController {
     @RequestMapping(value = "/link/admin/order-list", method = RequestMethod.GET)
     public ModelAndView adminOrderListPage() { return new ModelAndView("admin/order-list"); }
     @RequestMapping(value = "/link/food/add", method = RequestMethod.GET)
-    public ModelAndView adminAddFoodPage() {
-        ModelAndView modelAndView;
-        List<FoodTypes> foodTypesList;
-
-        modelAndView = new ModelAndView("admin/food/add");
-
-        foodTypesList = FoodService.getAllFoodTypes();
-        modelAndView.addObject("foodTypeList", foodTypesList);
-
-        return modelAndView;
-    }
+    public ModelAndView adminAddFoodPage() { return new ModelAndView("admin/food/add"); }
     @RequestMapping(value = "/link/food/delete", method = RequestMethod.GET)
-    public ModelAndView adminDeleteFoodPage() {
-        ModelAndView modelAndView;
-        List<Foods> foodsList;
-
-        modelAndView = new ModelAndView("admin/food/delete");
-
-        foodsList = FoodService.getAllFoods();
-        modelAndView.addObject("foodList", foodsList);
-
-        return modelAndView;
-    }
+    public ModelAndView adminDeleteFoodPage() { return new ModelAndView("admin/food/delete"); }
     @RequestMapping(value = "/link/food/edit", method = RequestMethod.GET)
     public ModelAndView adminEditFoodPage() { return new ModelAndView("admin/food/edit"); }
     @RequestMapping(value = "/link/food-type/add", method = RequestMethod.GET)
     public ModelAndView adminAddFoodTypePage() { return new ModelAndView("admin/food-type/add"); }
     @RequestMapping(value = "/link/food-type/delete", method = RequestMethod.GET)
-    public ModelAndView adminDeleteFoodTypePage() {
-        ModelAndView modelAndView;
-        List<FoodTypes> foodTypesList;
-
-        foodTypesList = FoodService.getAllFoodTypes();
-        modelAndView = new ModelAndView("admin/food-type/delete");
-
-        modelAndView.addObject("foodTypeList", foodTypesList);
-
-        return modelAndView;
-    }
+    public ModelAndView adminDeleteFoodTypePage() { return new ModelAndView("admin/food-type/delete"); }
     @RequestMapping(value = "/link/food-type/edit", method = RequestMethod.GET)
     public ModelAndView adminEditFoodTypePage() { return new ModelAndView("admin/food-type/edit"); }
 

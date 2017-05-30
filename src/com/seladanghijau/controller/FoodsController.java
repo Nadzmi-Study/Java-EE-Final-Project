@@ -36,7 +36,7 @@ public class FoodsController {
             return new ModelAndView("admin/food/add");
 
         newFoodId = FoodService.addNewFoods(newFood);
-        mavAdmin = new ModelAndView("admin/admin-profile");
+        mavAdmin = new ModelAndView("redirect:/link/admin");
 
         mavAdmin.addObject("message", "New food type (id: " + newFoodId + ") has been registered.");
 
@@ -51,7 +51,7 @@ public class FoodsController {
             return new ModelAndView("admin/food/edit");
 
         FoodService.editFoods(updatedFoods);
-        mavAdmin = new ModelAndView("admin/admin-profile");
+        mavAdmin = new ModelAndView("redirect:/link/food/edit");
 
         mavAdmin.addObject("message", "Food has been updated.");
 
@@ -63,7 +63,7 @@ public class FoodsController {
         ModelAndView mavAdmin;
 
         FoodService.removeFoodsById(id);
-        mavAdmin = new ModelAndView("admin/admin-profile");
+        mavAdmin = new ModelAndView("redirect:/link/food/delete");
 
         mavAdmin.addObject("message", "Food has been deleted.");
 
@@ -79,7 +79,7 @@ public class FoodsController {
             return new ModelAndView("admin/food-type/add");
 
         newFoodTypeId = FoodService.addNewFoodTypes(newFoodType);
-        mavAdmin = new ModelAndView("admin/admin-profile");
+        mavAdmin = new ModelAndView("redirect:/link/admin");
 
         mavAdmin.addObject("message", "New food type (id: " + newFoodTypeId + ") has been registered.");
 
@@ -94,7 +94,7 @@ public class FoodsController {
             return new ModelAndView("admin/food-type/edit");
 
         FoodService.editFoodTypes(updatedFoodType);
-        mavAdmin = new ModelAndView("admin/admin-profile");
+        mavAdmin = new ModelAndView("redirect:/link/food-type/edit");
 
         mavAdmin.addObject("message", "Food type has been updated.");
 
@@ -106,7 +106,7 @@ public class FoodsController {
         ModelAndView mavAdmin;
 
         FoodService.removeFoodTypesById(id);
-        mavAdmin = new ModelAndView("admin/admin-profile");
+        mavAdmin = new ModelAndView("redirect:/link/food-type/delete");
 
         mavAdmin.addObject("message", "Food type has been deleted.");
 
