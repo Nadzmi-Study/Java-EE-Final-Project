@@ -23,8 +23,6 @@ public class OrdersController {
      *  -   registerNewOrder(newOrder: Orders @ModelAttribute("orders"), result: BindingResult): ModelAndView
      */
 
-    // TODO: 5/20/2017 - init binder: void [initialize orderTime format]
-
     @RequestMapping(value = "/register", method = RequestMethod.POST)
     public ModelAndView registerNewOrder(@ModelAttribute("order") Orders newOrder, BindingResult result) {
         ModelAndView mavUser;

@@ -23,8 +23,6 @@ public class UsersController {
      *  -   logout(): ModelAndView
      */
 
-    // TODO: 5/20/2017 - iniBinder: void
-
     @RequestMapping(value = "/register", method = RequestMethod.POST)
     public ModelAndView registerNewUser(@ModelAttribute("user") Users newUser, BindingResult result) {
         ModelAndView modelAndView;

@@ -25,8 +25,6 @@ public class FoodsController {
      *  -   removeFoodTypes(id: Long @RequestParam): ModelAndView
      */
 
-    // TODO: 5/20/2017 - init binder
-
     @RequestMapping(value = "/register", method = RequestMethod.POST)
     public ModelAndView registerNewFoods(@ModelAttribute("foods") Foods newFood, BindingResult result) {
         ModelAndView mavAdmin;
