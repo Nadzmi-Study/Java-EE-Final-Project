@@ -46,7 +46,7 @@ public class UserService {
         return tempAdmins;
     }
 
-    public static Admins getAdminsByLoginAndPAssword(String login, String password) {
+    public static Admins getAdminsByLoginAndPassword(String login, String password) {
         Session session;
         Transaction transaction;
         Admins tempAdmins;

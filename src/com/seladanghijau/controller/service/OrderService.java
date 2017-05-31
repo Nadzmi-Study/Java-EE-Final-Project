@@ -7,6 +7,7 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.criterion.Restrictions;
 
+import java.util.Date;
 import java.util.List;
 
 public class OrderService {
@@ -18,10 +19,10 @@ public class OrderService {
      *  -   addNewOrders(newOrder: Orders): Long
      */
 
-    public static List getAllOrders() {
+    public static List<Orders> getAllOrders() {
         Session session;
         Transaction transaction;
-        List orderList;
+        List<Orders> orderList;
 
         orderList = null;
         session = HibernateUtil.getSessionFactory().openSession();
@@ -71,10 +72,10 @@ public class OrderService {
         return tempOrders;
     }
 
-    public static List getOrdersByUserId(Long userId) {
+    public static List<Orders> getOrdersByUserId(Long userId) {
         Session session;
         Transaction transaction;
-        List orderList;
+        List<Orders> orderList;
 
         orderList = null;
         session = HibernateUtil.getSessionFactory().openSession();
@@ -109,6 +110,7 @@ public class OrderService {
         try {
             transaction = session.beginTransaction();
 
+            newOrder.setOrderTime(new Date());
             id = (Long) session.save(newOrder);
 
             transaction.commit();

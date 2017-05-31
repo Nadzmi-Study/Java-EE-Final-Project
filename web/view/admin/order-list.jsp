@@ -27,12 +27,12 @@
 
             <c:forEach varStatus="loop" var="order" items="${orderList}">
                 <tr>
-                    <td>${loop.index + 1}<< no: 1 >></td>
-                    <td><< food.id: 1 >></td>
+                    <td>${loop.index + 1}</td>
+                    <td>${order.foodId}</td>
                     <td><< foodType.name: vegetables >></td>
                     <td><< food.name: Banana >></td>
                     <td><< food.price: 10.00 >></td>
-                    <td><< user.id: 1 >></td>
+                    <td>${order.userId}</td>
                 </tr>
             </c:forEach>
         </table>

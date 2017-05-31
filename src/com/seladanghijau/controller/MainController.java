@@ -2,8 +2,10 @@ package com.seladanghijau.controller;
 
 
 import com.seladanghijau.controller.service.FoodService;
+import com.seladanghijau.controller.service.OrderService;
 import com.seladanghijau.model.FoodTypes;
 import com.seladanghijau.model.Foods;
+import com.seladanghijau.model.Orders;
 import com.seladanghijau.model.Users;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -15,13 +17,17 @@ import java.util.List;
 @Controller
 public class MainController {
     @RequestMapping(value = "/", method = RequestMethod.GET)
-    public ModelAndView mainPage(@SessionAttribute("user") Users users) { return new ModelAndView("index"); }
+    public ModelAndView mainPage() { return new ModelAndView("index"); }
 
     // MODEL
     @ModelAttribute("foodList")
     public List<Foods> getFoodList() { return FoodService.getAllFoods(); }
     @ModelAttribute("foodTypeList")
     public List<FoodTypes> getFoodTypeList() { return FoodService.getAllFoodTypes(); }
+    @ModelAttribute("orderList")
+    public List<Orders> listOfOrders() { return OrderService.getAllOrders(); }
+    @ModelAttribute("orderListByUserId")
+    public List<Orders> listOfOrdersByUserId(@SessionAttribute("user") Users user) { return OrderService.getOrdersByUserId(user.getId()); }
 
     // LINKS
     // main

@@ -2,7 +2,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
     <head>
-        <title>${user.login} | Order List</title>
+        <title>${users.login} | Order List</title>
 
         <!-- bootstrap -->
         <!-- Latest compiled and minified CSS -->
@@ -26,7 +26,7 @@
 
             <c:forEach varStatus="loop" var="order" items="${orderListByUserId}">
                 <tr>
-                    <td>${loop.index + 1}<< no: 1 >></td>
+                    <td>${loop.index + 1}</td>
                     <td><< food.id: 1 >></td>
                     <td><< foodType.name: vegetables >></td>
                     <td><< food.name: Banana >></td>

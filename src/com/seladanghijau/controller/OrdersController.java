@@ -6,10 +6,7 @@ import com.seladanghijau.model.Users;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.WebDataBinder;
-import org.springframework.web.bind.annotation.InitBinder;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.text.SimpleDateFormat;
@@ -28,12 +25,6 @@ public class OrdersController {
 
     // TODO: 5/20/2017 - init binder: void [initialize orderTime format]
 
-    @ModelAttribute("orderList")
-    public List listOfOrders() { return OrderService.getAllOrders(); }
-
-    @ModelAttribute("orderListByUserId")
-    public List listOfOrdersByUserId(@ModelAttribute("user") Users user) { return OrderService.getOrdersByUserId(user.getId()); }
-
     @RequestMapping(value = "/register", method = RequestMethod.POST)
     public ModelAndView registerNewOrder(@ModelAttribute("order") Orders newOrder, BindingResult result) {
         ModelAndView mavUser;
@@ -43,7 +34,7 @@ public class OrdersController {
             return new ModelAndView("user/order-food");
 
         newOrderId = OrderService.addNewOrders(newOrder);
-        mavUser = new ModelAndView("user/user-profile");
+        mavUser = new ModelAndView("redirect:/link/order-food");
 
         mavUser.addObject("message", "New order(id: " + newOrderId + ") has been placed.");
 

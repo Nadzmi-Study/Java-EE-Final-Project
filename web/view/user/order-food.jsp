@@ -2,7 +2,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
     <head>
-        <title>${user.login} | Order Food</title>
+        <title>${users.login} | Order Food</title>
 
         <!-- bootstrap -->
         <!-- Latest compiled and minified CSS -->
@@ -33,8 +33,11 @@
                     <td>${food.name}</td>
                     <td>${food.price}</td>
                     <td>
-                        <form action="" method="post">
-                            <button type="submit" value="${food.id}">Order</button>
+                        <form action="/orders/register" method="post">
+                            <input type="hidden" name="foodId" value="${food.id}" />
+                            <input type="hidden" name="userId" value="${users.id}" />
+
+                            <input type="submit" value="Order" />
                         </form>
                     </td>
                 </tr>
