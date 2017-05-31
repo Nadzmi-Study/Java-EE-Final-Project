@@ -2,7 +2,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
     <head>
-        <title>${users.login} | Order Food</title>
+        <title>${user_data.login} | Order Food</title>
 
         <!-- bootstrap -->
         <!-- Latest compiled and minified CSS -->
@@ -35,7 +35,7 @@
                     <td>
                         <form action="/orders/register" method="post">
                             <input type="hidden" name="foodId" value="${food.id}" />
-                            <input type="hidden" name="userId" value="${users.id}" />
+                            <input type="hidden" name="userId" value="${user_data.id}" />
 
                             <input type="submit" value="Order" />
                         </form>
