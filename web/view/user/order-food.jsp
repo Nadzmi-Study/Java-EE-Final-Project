@@ -1,8 +1,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
     <head>
-        <title>${user_data.login} | Order Food</title>
+        <title><c:out value="${user_data.login}" /> | Order Food</title>
 
         <!-- bootstrap -->
         <!-- Latest compiled and minified CSS -->
@@ -26,12 +27,23 @@
             </tr>
 
             <c:forEach varStatus="loop" var="food" items="${foodList}">
+                <sql:setDataSource var="db" driver="com.mysql.jdbc.Driver"
+                                   url="jdbc:mysql://localhost/mini_restaurant"
+                                   user="root" password="" />
+                <sql:query var="foodType" dataSource="${db}">
+                    SELECT * FROM food_types WHERE id LIKE ${food.typeId};
+                </sql:query>
+
                 <tr>
-                    <td>${loop.index + 1}</td>
-                    <td>${food.id}</td>
-                    <td>${food.typeId}</td>
-                    <td>${food.name}</td>
-                    <td>${food.price}</td>
+                    <td><c:out value="${loop.index + 1}" /></td>
+                    <td><c:out value="${food.id}" /></td>
+                    <td>
+                        <c:forEach var="item" items="${foodType.rows}">
+                            <c:out value="${item.name}" />
+                        </c:forEach>
+                    </td>
+                    <td><c:out value="${food.name}" /></td>
+                    <td><c:out value="${food.price}" /></td>
                     <td>
                         <form action="/orders/register" method="post">
                             <input type="hidden" name="foodId" value="${food.id}" />

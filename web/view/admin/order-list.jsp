@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
     <head>
@@ -18,21 +19,50 @@
         <table>
             <tr>
                 <th>No.</th>
-                <th>ID</th>
+                <th>User</th>
+                <th>Food</th>
                 <th>Food Type</th>
-                <th>Name</th>
                 <th>Price (RM)</th>
-                <th>User ID</th>
             </tr>
 
             <c:forEach varStatus="loop" var="order" items="${orderList}">
+                <sql:setDataSource var="db" driver="com.mysql.jdbc.Driver"
+                                   url="jdbc:mysql://localhost/mini_restaurant"
+                                   user="root" password="" />
+                <sql:query var="user" dataSource="${db}">
+                    SELECT * FROM users WHERE id LIKE ${order.userId};
+                </sql:query>
+                <sql:query var="food" dataSource="${db}">
+                    SELECT * FROM foods WHERE id LIKE ${order.foodId};
+                </sql:query>
+                <sql:query var="foodType" dataSource="${db}">
+                    SELECT * FROM food_types WHERE id LIKE (
+                        SELECT type_id FROM foods WHERE id LIKE ${order.foodId}
+                    );
+                </sql:query>
+
                 <tr>
-                    <td>${loop.index + 1}</td>
-                    <td>${order.foodId}</td>
-                    <td><< foodType.name: vegetables >></td>
-                    <td><< food.name: Banana >></td>
-                    <td><< food.price: 10.00 >></td>
-                    <td>${order.userId}</td>
+                    <td><c:out value="${loop.index + 1}" /></td>
+                    <td>
+                        <c:forEach var="item" items="${user.rows}">
+                            <c:out value="${item.login}" />
+                        </c:forEach>
+                    </td>
+                    <td>
+                        <c:forEach var="item" items="${food.rows}">
+                            <c:out value="${item.name}" />
+                        </c:forEach>
+                    </td>
+                    <td>
+                        <c:forEach var="item" items="${foodType.rows}">
+                            <c:out value="${item.name}" />
+                        </c:forEach>
+                    </td>
+                    <td>
+                        <c:forEach var="item" items="${food.rows}">
+                            <c:out value="${item.price}" />
+                        </c:forEach>
+                    </td>
                 </tr>
             </c:forEach>
         </table>

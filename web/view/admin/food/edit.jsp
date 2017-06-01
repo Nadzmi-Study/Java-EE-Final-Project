@@ -27,13 +27,13 @@
             <c:forEach varStatus="loop" var="food" items="${foodList}">
                 <form action="/foods/update" method="post">
                     <tr>
-                        <td>${loop.index + 1}</td>
-                        <td>${food.id}</td>
+                        <td><c:out value="${loop.index + 1}" /></td>
+                        <td><c:out value="${food.id}" /></td>
                         <td><input type="text" name="name" value="${food.name}" /></td>
                         <td>
                             <select name="typeId">
                                 <c:forEach var="foodType" items="${foodTypeList}">
-                                    <option value="${foodType.id}">${foodType.name}</option>
+                                    <option value="${foodType.id}"><c:out value="${foodType.name}" /></option>
                                 </c:forEach>
                             </select>
                         </td>

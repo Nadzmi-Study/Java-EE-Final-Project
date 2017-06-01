@@ -1,9 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page import="com.seladanghijau.model.Foods" %>
-<%@ page import="java.util.List" %>
-<%@ page import="java.io.PrintWriter" %>
-<%@ page import="org.springframework.mock.web.MockHttpServletRequest" %>
-<%@ page import="org.springframework.mock.web.MockHttpServletResponse" %>
+<%@ taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
     <head>
@@ -30,12 +26,23 @@
             </tr>
 
             <c:forEach varStatus="loop" var="food" items="${foodList}">
+                <sql:setDataSource var="db" driver="com.mysql.jdbc.Driver"
+                                   url="jdbc:mysql://localhost/mini_restaurant"
+                                   user="root" password="" />
+                <sql:query dataSource="${db}" var="foodType">
+                    SELECT * FROM food_types WHERE id LIKE ${food.typeId};
+                </sql:query>
+
                 <tr>
-                    <td>${loop.index + 1}</td>
-                    <td>${food.id}</td>
-                    <td>${food.name}</td>
-                    <td>${food.typeId}</td>
-                    <td>${food.price}</td>
+                    <td><c:out value="${loop.index + 1}" /></td>
+                    <td><c:out value="${food.id}" /></td>
+                    <td><c:out value="${food.name}" /></td>
+                    <td>
+                        <c:forEach var="item" items="${foodType.rows}">
+                            <c:out value="${item.name}" />
+                        </c:forEach>
+                    </td>
+                    <td><c:out value="${food.price}" /></td>
                     <td>
                         <form action="/foods/delete" method="post">
                             <button type="submit" name="id" value="${food.id}">Delete</button>
