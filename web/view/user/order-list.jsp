@@ -2,7 +2,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
     <head>
-        <title>${users.login} | Order List</title>
+        <title>${user_data.login} | Order List</title>
 
         <!-- bootstrap -->
         <!-- Latest compiled and minified CSS -->

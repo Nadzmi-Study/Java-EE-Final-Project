@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
     <head>
@@ -11,7 +12,7 @@
         <!-- custom -->
     </head>
     <body>
-        <a href="/link/user/order-list">Order List</a>
+        <a href="/link/user/order-list/${user_data.id}">Order List</a>
         <a href="/link/order-food">Order Food</a>
 
         <h3>User Profile</h3>

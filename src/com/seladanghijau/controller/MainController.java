@@ -26,8 +26,6 @@ public class MainController {
     public List<FoodTypes> getFoodTypeList() { return FoodService.getAllFoodTypes(); }
     @ModelAttribute("orderList")
     public List<Orders> listOfOrders() { return OrderService.getAllOrders(); }
-    @ModelAttribute("orderListByUserId")
-    public List<Orders> listOfOrdersByUserId(@SessionAttribute("user") Users user) { return OrderService.getOrdersByUserId(user.getId()); }
 
     // LINKS
     // main
@@ -57,8 +55,18 @@ public class MainController {
     // user
     @RequestMapping(value = "/link/user", method = RequestMethod.GET)
     public ModelAndView userMainPage() { return new ModelAndView("user/user-profile"); }
-    @RequestMapping(value = "/link/user/order-list", method = RequestMethod.GET)
-    public ModelAndView userOrderListPage() { return new ModelAndView("user/order-list"); }
+    @RequestMapping(value = "/link/user/order-list/{id}", method = RequestMethod.GET)
+    public ModelAndView userOrderListPage(@PathVariable("id") Long id) {
+        ModelAndView modelAndView;
+        List<Orders> ordersList;
+
+        ordersList = OrderService.getOrdersByUserId(id);
+        modelAndView = new ModelAndView("user/order-list");
+
+        modelAndView.addObject("orderListByUserId", ordersList);
+
+        return modelAndView;
+    }
     @RequestMapping(value = "/link/order-food", method = RequestMethod.GET)
     public ModelAndView userOrderFoodPage() { return new ModelAndView("user/order-food"); }
 }
