@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
     <head>
@@ -33,7 +34,14 @@
                         <td>
                             <select name="typeId">
                                 <c:forEach var="foodType" items="${foodTypeList}">
-                                    <option value="${foodType.id}"><c:out value="${foodType.name}" /></option>
+                                    <c:choose>
+                                        <c:when test="${foodType.id == food.typeId}">
+                                            <option value="${foodType.id}" selected><c:out value="${foodType.name}" /></option>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <option value="${foodType.id}"><c:out value="${foodType.name}" /></option>
+                                        </c:otherwise>
+                                    </c:choose>
                                 </c:forEach>
                             </select>
                         </td>
