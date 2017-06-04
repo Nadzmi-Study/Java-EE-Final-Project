@@ -23,6 +23,7 @@
                 <th>Food</th>
                 <th>Food Type</th>
                 <th>Price (RM)</th>
+                <th>Order Time</th>
             </tr>
 
             <c:forEach varStatus="loop" var="order" items="${orderList}">
@@ -63,6 +64,7 @@
                             <c:out value="${item.price}" />
                         </c:forEach>
                     </td>
+                    <td><c:out value="${order.orderTime}" /></td>
                 </tr>
             </c:forEach>
         </table>
